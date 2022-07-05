@@ -26,6 +26,6 @@ my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.co
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
 #Setting Fruits Name in Multi-select list (with Defualt value)
-streamlit.multiselect('Pick some fruits:', list(my_fruit_list.index),['Avocado'])
+Fruit_selected = streamlit.multiselect('Pick some fruits:', list(my_fruit_list.index),['Avocado'])
 
-streamlit.dataframe(my_fruit_list)
+streamlit.dataframe(my_fruit_list.loc(Fruit_selected))
