@@ -19,8 +19,13 @@ import pandas
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 
+#Without setting index
+#streamlit.multiselect('Pick some fruits:', list(my_fruit_list.index))
+
+#Setting Index as Fruit Name
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
-streamlit.multiselect('Pick some fruits:', list(my_fruit_list.index))
+#Setting Fruits Name in Multi-select list (with Defualt value)
+streamlit.multiselect('Pick some fruits:', list(my_fruit_list.index),['Avocado'])
 
 streamlit.dataframe(my_fruit_list)
